@@ -22,9 +22,8 @@ var carDetails = {
 */
 
 //Code Here
-
-
-
+let {color, make, model, year} = carDetails 
+// console.log(carDetails)
 ////////// PROBLEM 2 //////////
 
 /*
@@ -35,7 +34,7 @@ var carDetails = {
 
 function greeting( obj ) {
   //Code Here
-  
+  let {firstName, lastName, title} = obj
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
@@ -54,7 +53,10 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+let totalPopulation = (obj)=>{
+  let {utah, california, texas, arizona} = obj
+  return utah + california + texas + arizona
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -69,12 +71,18 @@ function greeting( obj ) {
 
 //Code Here
 
-
+let ingredients = (obj)=>{
+  let {carb, fat, protein} = obj
+  let arr = []
+  arr.push(carb, fat, protein)
+  return arr
+}
 
 ////////// PROBLEM 5 //////////
 
 /*
-  Now we will use object destructuring as the function's parameter instead of destructuring the object inside of the function declaration.
+  Now we will use object destructuring as the function's parameter instead of destructuring the object 
+  inside of the function declaration.
   Example:
     function example( {one, two, three} ) {
       return one + two + three
@@ -86,7 +94,15 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+let largeNumbers = ( {first, second, third} )=>{
+  if(first < second && first < third){
+    return first
+  }else if (second < third && second < first){
+    return second
+  }else{
+    return third
+  }
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -99,4 +115,12 @@ function greeting( obj ) {
 
 //Code Here
 
-
+let numberGroups=( {a, b, c} )=>{
+if(a.length > b.length && a.length > c.length){
+  return a
+}else if(b.length > c.length && b.length > a.length){
+  return b
+}else{
+  return c
+}
+}

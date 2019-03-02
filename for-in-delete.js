@@ -7,8 +7,10 @@
 */
 
 /*
-  First we'll look at the difference between accessing property values in a for in loop and accessing the property name in a for in loop.
-  In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
+  First we'll look at the difference between accessing property values in a for in loop and accessing the 
+  property name in a for in loop.
+  In the example below, we are accessing the property values. Uncomment the code below, run it and 
+  look at what prints in the console.
 */
 
 // var values = {
@@ -24,7 +26,8 @@
 // }
 
 /*
-  In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
+  In this next example, we are accessing the property names themselves. Uncomment the code below, 
+  run it and look at what prints in the console.
 */
 
 // for(var key in values) {
@@ -36,11 +39,16 @@
 ////////// PROBLEM 1 //////////
 
 /*
-  Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
+  Inside the function showValues, write a for in loop that concatenates each of the property 
+  values and returns the concatenated string.
 */
 
 function showValues( obj ) {
-  //Code Here
+  str = ''
+  for(var key in obj){
+    str += obj[key]
+  }
+  return str
 }
 
 
@@ -49,25 +57,39 @@ function showValues( obj ) {
 
 /*
   Write a function called greaterThan10 that takes in an object. 
-  Write a for in loop that loops over the object and changes any value that is greater than 10 to 0. 
+  Write a for in loop that loops over the object and changes any value that is greater 
+  than 10, to 0. 
   Return the updated object.
 */
 
 //Code Here
 
-
+let greaterThan10 = (obj)=>{
+  for(var key in obj){
+    if(obj[key] > 10){
+      obj[key] = 0
+    }
+  }
+  return obj
+}
 
 ////////// PROBLEM 3 //////////
 
 /*
   Write a function called double that takes in an object.
-  Write a for in loop that loops over the object and changes every value to be itself multipled by 2.
+  Write a for in loop that loops over the object and changes every value to be itself 
+  multipled by 2.
   Return the updated object.
 */
 
 //Code Here
 
-
+let double = (obj)=>{
+  for(var key in obj){
+    obj[key]=obj[key] * 2
+  }
+  return obj
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -81,7 +103,15 @@ function showValues( obj ) {
 
 //Code Here
 
-
+let secrets = (obj)=>{
+  let str = ''
+  for(var key in obj){
+    if(key.startsWith('sh') === true){
+      str += obj[key]
+    }
+  }
+  return str
+}
 
 /* 
   Sometimes it's needed to delete object properties. 
@@ -112,7 +142,12 @@ function showValues( obj ) {
 
 //Code Here
 
-
+let removePassword = (obj)=>{
+  for(var key in obj){
+  delete obj.password
+  }
+  return obj
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -126,12 +161,17 @@ var deleteTheBigNumbers = {
 // Do not edit the code above.
 
 /*
-  Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
+  Write a for in loop that deletes every property from the object deleteTheBigNumbers whose 
+  value is greater than 100.
 */
 
 //Code Here
 
-
+for(var key in deleteTheBigNumbers){
+  if(deleteTheBigNumbers[key] > 100){
+    delete deleteTheBigNumbers[key]
+  }
+}
 
 ////////// PROBLEM 7 //////////
 
@@ -144,7 +184,14 @@ var deleteTheBigNumbers = {
 
 //Code Here
 
-
+let startsWithK = (obj)=>{
+  for(var key in obj){
+    if(key.startsWith('k')){
+      delete obj[key]
+    }
+  }
+  return obj
+}
 
 ////////// PROBLEM 8 //////////
 
@@ -159,4 +206,11 @@ var deleteTheBigNumbers = {
 
 //Code Here
 
-
+let hiddenTreasure = (obj)=>{
+  for(var key in obj){
+    if(!obj[key].includes('treasure')){
+      delete obj[key]
+    }
+  }
+  return obj
+}

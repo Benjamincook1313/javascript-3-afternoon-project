@@ -1,5 +1,6 @@
 /*
-  Once you complete a problem, refresh ./spread.html in your browser and check to see if the problem's test(s) are passing.
+  Once you complete a problem, refresh ./spread.html in your browser and check to see if the problem's 
+  test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
 
@@ -19,7 +20,7 @@ let product = {
 
 // code here
 
-
+let productCopy = [...product]
 
 
 ////////// PROBLEM 2 //////////
