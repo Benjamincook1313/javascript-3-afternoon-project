@@ -53,28 +53,18 @@ var employees = [
 
 //Code Here
 
+
 let employeeUpdater = ()=>{
-  for(var key in employees){
-    if(employees[key] === 'Theo'){
-      delete employees[key]
-    }if(employees[key] === 'Lorie'){
-      employees[department] = 'HR'
+  for(let i=0; i<employees.length; i++){
+    if(employees[i].firstName === 'Theo'){
+       employees.splice([i],1)
+    }if(employees[i].firstName === 'Lorie'){
+      employees[i].department = 'HR'
     }
   }
   return employees
 }
-
-
-// let employeeUpdater = (employees)=>{
-//   for(let i=0; i<arr.length; i++){
-//     if(employees[i].firstName === 'Theo'){
-//        employees.splice([i],1)
-//     }if(employees[i].firstName === 'Lorie'){
-//       employees.department = 'HR'
-//     }
-//   }
-//   return employees
-
+// console.log(employeeUpdater(employees))
 ////////// PROBLEM 2 //////////
 
 // Do not edit the code below.
@@ -93,21 +83,25 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 //Code Here
 
-let removeDuplicates = (wpA)=>{
-  let wpA = workplaceAccidents
-  for(let i=0; i<wpA.length; i++){
-    for(let k=i+1; i<wpA.length; i++){
-      if(wpA[i] === wpA[k]){
-        wpA.splice([i],1)
+
+
+let removeDuplicates = (arr)=>{
+  for(let i=0; i<arr.length; i++){
+    for(let k=i +1; k<arr.length; k++){
+      if(arr[i] === arr[k]){
+        arr.splice(k, 1)
+        k--
       }
     }
   }
-  return wpA
+  return arr
 }
+// console.log(removeDuplicates(workplaceAccidents))
 
 ////////// PROBLEM 3 //////////
 
 // Do not edit the code below.
+
 var cat = {
   name: 'Fluffy',
   catFriends: [
@@ -121,6 +115,7 @@ var cat = {
     }
   ]
 }
+
 // Do not edit the code above.
 
 /*
@@ -173,13 +168,15 @@ var myCar = {
 
 //Code Here
 
-let recordCleaner = accidents.map(function(myCar){
-  if(myCar.atFaultForAccident === true){
-    myCar.atFaultForAccident = false
+let recordCleaner=()=>{
+  for(let key in myCar){
+    for(let i=0; i<myCar.accidents.length; i++){
+      myCar.accidents[i].atFaultForAccident = false
+    }
   }
-  return myCar
-})
+}
 
+// console.log(recordCleaner(myCar))
 
 ////////// PROBLEM 5 //////////
 
@@ -198,4 +195,17 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
 //Code Here
 
-let looper = numsArr.map(function(arr){})
+let looper = ()=>{
+  for(var i=0; i < numsArr.length; i++){
+    for(var k=0; k < numsArr[i].length; k++){
+      if(numsArr[i][k] % 2 === 0){
+        numsArr[i][k] = "even"
+      }else if(numsArr[i][k] % 2 === 1){
+        numsArr[i][k] = "odd"
+      }
+    }
+  }
+  return numsArr
+}
+
+console.log(looper(numsArr))
